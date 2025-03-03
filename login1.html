@@ -24,31 +24,13 @@
     <!-- Custom Styles -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        /* Navbar Hover Effect */
-        .navbar-nav .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 0;
-            height: 2px;
-            background-color: #007bff;
-            transition: width 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 100%;
-        }
-
         /* Page Background */
         body {
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            background-image: url('./img/Free\ Vector\ _\ Memphis\ geometric\ background\ with\ abstract\ shapes.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -92,6 +74,11 @@
             margin: 100px auto;
             position: relative;
             overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .signup-container:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
         }
 
         .signup-header {
@@ -131,23 +118,32 @@
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
         }
 
+        .form-control:hover {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
         .gender-option {
             border: 2px solid #dddfe2;
             border-radius: 6px;
             padding: 0.75rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .gender-option:hover {
             border-color: #007bff;
-            background: rgba(0, 123, 255, 0.03);
+            background: rgba(0, 123, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         .gender-option.active {
             border-color: #007bff;
-            background: rgba(0, 123, 255, 0.1);
+            background: rgba(0, 123, 255, 0.15);
+            transform: translateY(0);
         }
 
         .dob-select {
@@ -160,6 +156,13 @@
             height: 46px;
             border-radius: 6px;
             border-color: #dddfe2;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:hover {
+            border-color: #80bdff;
+            cursor: pointer;
+            box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.1);
         }
 
         .terms-text {
@@ -173,10 +176,27 @@
             color: #007bff;
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .terms-text a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background-color: #007bff;
+            transition: width 0.3s ease;
         }
 
         .terms-text a:hover {
-            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .terms-text a:hover::after {
+            width: 100%;
         }
 
         .btn-signup {
@@ -188,11 +208,19 @@
             border: none;
             border-radius: 6px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-signup:hover {
             background: #0069d9;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-signup:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .password-strength {
@@ -205,6 +233,74 @@
             font-size: 0.75rem;
             margin-top: 0.25rem;
             display: none;
+        }
+
+        /* Enhanced Navigation Hover Effect */
+        .navbar-nav .nav-link {
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: #007bff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown Hover Effect */
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .dropdown-item {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(0, 123, 255, 0.08);
+            padding-left: 1.8rem;
+        }
+
+        .dropdown-item:hover::before {
+            content: "";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #007bff;
+        }
+
+        /* Social Media Button Hover */
+        .btn-square {
+            transition: all 0.3s ease;
+        }
+
+        .btn-square:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>

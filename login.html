@@ -44,13 +44,45 @@
         .navbar-nav .nav-link.active::after {
             width: 100%;
         }
+        
+        /* Background Image for full body */
         body {
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            background-image: url('./img/Free\ Vector\ _\ Memphis\ geometric\ background\ with\ abstract\ shapes.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+        
+        /* Overlay to make content more readable */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: -1;
+        }
+
+        /* Style navbar to be more visible against background */
+        .nav-bar {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #000 !important;
+            font-weight: 500;
         }
 
         .container-wrapper {
@@ -61,25 +93,38 @@
             width: 100%;
             max-width: 1200px;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .login-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             width: 100%;
             max-width: 900px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* Added hover effect for the login card */
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         .image-section {
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            background-image: url('./img/Free\ Vector\ _\ Memphis\ geometric\ background\ with\ abstract\ shapes.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            
-        
         }
 
         .image-section img {
@@ -88,6 +133,12 @@
             border-radius: 10px;
             object-fit: cover;
             margin-top: 110px;
+            transition: transform 0.4s ease;
+        }
+        
+        /* Added hover effect for the image */
+        .image-section img:hover {
+            transform: scale(1.03);
         }
 
         .form-section {
@@ -98,25 +149,41 @@
             border-radius: 8px;
             padding: 12px 20px;
             transition: all 0.3s ease;
+            border: 1px solid #ced4da;
+            background-color: rgba(255, 255, 255, 0.9);
         }
-
-        .input-group-text {
-            background: transparent;
-            border-right: 0;
+        
+        /* Enhanced hover effect for input fields */
+        .form-control:hover {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
         }
 
         .form-control:focus {
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
             border-color: #80bdff;
+            background-color: #fff;
+        }
+
+        .input-group-text {
+            background: rgba(255, 255, 255, 0.8);
+            border-right: 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Added hover effect for input group icons */
+        .input-group:hover .input-group-text {
+            background-color: rgba(0, 123, 255, 0.05);
         }
 
         .password-toggle {
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
 
         .password-toggle:hover {
             color: #0056b3;
+            background-color: rgba(0, 123, 255, 0.05);
         }
 
         .btn-primary {
@@ -125,11 +192,83 @@
             padding: 12px 24px;
             font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-
+        
+        /* Enhanced button hover effect with ripple */
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
         .btn-primary:hover {
             background: #2a5298;
-            transform: translateY(-1px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 80, 164, 0.4);
+        }
+        
+        .btn-primary:hover:before {
+            left: 100%;
+        }
+        
+        /* Hover effect for links */
+        a.text-decoration-none {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        a.text-decoration-none:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -1px;
+            left: 0;
+            background-color: #1e3c72;
+            transition: width 0.3s ease;
+        }
+        
+        a.text-decoration-none:hover {
+            color: #1e3c72;
+        }
+        
+        a.text-decoration-none:hover:after {
+            width: 100%;
+        }
+        
+        /* Hover effect for the remember me checkbox */
+        .form-check-input {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .form-check-input:hover {
+            border-color: #1e3c72;
+        }
+        
+        .form-check-label {
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .form-check:hover .form-check-label {
+            color: #1e3c72;
+        }
+
+        /* Enhanced footer for better visibility against background */
+        .copyright {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            border-radius: 15px 15px 0 0;
+            margin-top: auto;
         }
 
         @media (max-width: 768px) {
@@ -254,7 +393,6 @@
                                         Remember me
                                     </label>
                                 </div>
-                                <a href="#!" class="text-decoration-none">Forgot Password?</a>
                             </div>
 
                             <!-- Submit Button -->

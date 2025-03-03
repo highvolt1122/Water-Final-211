@@ -13,7 +13,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            background-image: url('./img/Free\ Vector\ _\ Memphis\ geometric\ background\ with\ abstract\ shapes.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         .card {
             width: 350px;
@@ -167,11 +171,11 @@
                 Swal.fire({
                     icon: "success",
                     title: "Verification Successful!",
-                    text: "Redirecting to home page...",
+                    text: "Redirecting to Sign In page...",
                     timer: 2000,
                     showConfirmButton: false
                 }).then(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "Login.html";
                 });
             } else {
                 Swal.fire({
